@@ -1,219 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Escola Renascer — educação infantil e ensino fundamental do maternal ao 9º ano. Formando o futuro, cuidando do presente.">
-  <title>Escola Renascer | Formando o futuro</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Escola Renascer | Educação Infantil ao 9º ano</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>📚 Educação Infantil ao 9º ano</span>
-      <span>✦ Matrículas abertas</span>
-    </div>
-  </div>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="#inicio"><span class="brand-mark">R</span><span><b>Escola</b><strong>Renascer</strong></span></a>
+<button class="menu-toggle" id="menuToggle">☰</button>
+<nav id="mainNav">
+<a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#ensino">Ensino</a><a href="#diferenciais">Diferenciais</a><a href="#matriculas">Matrículas</a><a href="#contato">Contato</a>
+<button class="nav-login" id="openStudent">Área do Aluno</button><button class="nav-login teacher" id="openTeacher">Área do Professor</button>
+</nav></div></header>
 
-  <header class="header" id="header">
-    <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Escola Renascer - início">
-        <span class="brand-mark">R</span>
-        <span><strong>RENASCER</strong><small>Educação, força que transforma</small></span>
-      </a>
+<main>
+<section class="hero" id="inicio"><div class="hero-image"></div><div class="hero-content container">
+<span class="eyebrow">Educação Infantil ao 9º ano</span>
+<h1>Formando o futuro,<br><span>cuidando do presente.</span></h1>
+<p>Uma escola que une conhecimento, valores e acolhimento para acompanhar cada etapa da jornada de aprendizagem.</p>
+<div class="hero-actions"><a class="btn primary" href="#matriculas">Faça sua matrícula</a><a class="btn light" href="#sobre">Conheça a escola</a></div>
+</div></section>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+<section class="section about" id="sobre"><div class="container two-col">
+<div><span class="section-label">Sobre a Renascer</span><h2>Um lugar para aprender, crescer e renascer todos os dias.</h2>
+<p>A Escola Renascer oferece uma formação que valoriza o desenvolvimento acadêmico, social e humano dos estudantes, da educação infantil ao 9º ano.</p>
+<p>Nosso propósito é construir um ambiente acolhedor, seguro e preparado para despertar curiosidade, autonomia e responsabilidade.</p>
+<a class="text-link" href="#contato">Fale com a escola →</a></div><div class="about-photo"></div>
+</div></section>
 
-      <nav class="nav-links" id="navLinks">
-        <a class="active" href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#ensino">Ensino</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#matriculas">Matrículas</a>
-        <a href="#contato">Contato</a>
-      </nav>
+<section class="section gray" id="ensino"><div class="container"><div class="section-heading">
+<div><span class="section-label">Nossa proposta</span><h2>Ensino para cada fase.</h2></div><p>Uma trajetória escolar organizada para acompanhar o estudante em diferentes momentos do desenvolvimento.</p></div>
+<div class="cards">
+<article class="card"><span class="number">01</span><h3>Maternal</h3><p>Acolhimento, descobertas e experiências que estimulam o desenvolvimento na primeira infância.</p></article>
+<article class="card"><span class="number">02</span><h3>1º ao 5º ano</h3><p>Base sólida de aprendizagem, incentivo à leitura, criatividade, investigação e autonomia.</p></article>
+<article class="card"><span class="number">03</span><h3>6º ao 9º ano</h3><p>Conhecimento aprofundado, pensamento crítico, responsabilidade e preparação para novos desafios.</p></article>
+</div></div></section>
 
-      <div class="nav-actions">
-        <button class="btn btn-outline" data-modal="loginModal">Área do Aluno</button>
-        <a class="btn btn-primary" href="#matriculas">Faça sua matrícula <span>→</span></a>
-      </div>
-    </div>
-  </header>
+<section class="section" id="diferenciais"><div class="container"><div class="section-heading"><div><span class="section-label">Por que Renascer?</span><h2>Educação que vai além da sala de aula.</h2></div></div>
+<div class="features">
+<div><span>✦</span><h3>Acompanhamento</h3><p>Olhar atento ao desenvolvimento e à aprendizagem de cada estudante.</p></div>
+<div><span>✦</span><h3>Valores</h3><p>Respeito, responsabilidade, convivência e formação humana.</p></div>
+<div><span>✦</span><h3>Família e escola</h3><p>Comunicação próxima para construir uma comunidade escolar forte.</p></div>
+<div><span>✦</span><h3>Ambiente acolhedor</h3><p>Um espaço pensado para aprender com segurança, cuidado e confiança.</p></div>
+</div></div></section>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-image"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="hero-copy">
-          <div class="eyebrow"><i></i> Matrículas abertas</div>
-          <h1>Formando o futuro,<br><em>cuidando do presente.</em></h1>
-          <p>Na Escola Renascer, cada aluno é único. Unimos excelência pedagógica, acolhimento e segurança para construir uma educação que acompanha cada etapa do crescimento.</p>
-          <div class="hero-buttons">
-            <a class="btn btn-light btn-large" href="#sobre">Conheça a escola <span>→</span></a>
-            <a class="btn btn-primary btn-large" href="#matriculas">Faça sua matrícula <span>→</span></a>
-          </div>
-          <div class="hero-proof">
-            <div class="avatars"><span>R</span><span>+</span><span>✓</span></div>
-            <div><strong>Uma escola para crescer</strong><small>Da primeira descoberta aos grandes sonhos.</small></div>
-          </div>
-        </div>
-      </div>
-      <a class="scroll-hint" href="#sobre">↓ <span>Conheça a Renascer</span></a>
-    </section>
+<section class="section enrollment" id="matriculas"><div class="container enrollment-box">
+<div><span class="section-label">Matrículas</span><h2>Pronto para fazer parte da Renascer?</h2><p>Preencha o formulário e nossa equipe poderá entrar em contato para orientar você sobre o processo de matrícula.</p></div>
+<form id="enrollmentForm"><input required placeholder="Nome do responsável"><input required type="tel" placeholder="Telefone / WhatsApp">
+<select required><option value="">Ano escolar</option><option>Maternal</option><option>1º ano</option><option>2º ano</option><option>3º ano</option><option>4º ano</option><option>5º ano</option><option>6º ano</option><option>7º ano</option><option>8º ano</option><option>9º ano</option></select>
+<button class="btn primary" type="submit">Solicitar informações</button></form></div></section>
 
-    <section class="intro section" id="sobre">
-      <div class="container intro-grid">
-        <div>
-          <span class="section-label">SOBRE A RENASCER</span>
-          <h2>Educação com propósito,<br><span>cuidado em cada detalhe.</span></h2>
-        </div>
-        <div>
-          <p class="lead">A Escola Renascer acredita que aprender vai muito além da sala de aula. Criamos um ambiente em que conhecimento, valores, autonomia e convivência caminham juntos.</p>
-          <a class="text-link" href="#diferenciais">Descubra nossos diferenciais <span>→</span></a>
-        </div>
-      </div>
-    </section>
+<section class="section contact" id="contato"><div class="container two-col contact-grid">
+<div><span class="section-label">Contato</span><h2>Fale com a Escola Renascer.</h2><p>Estamos prontos para atender famílias, estudantes e professores.</p></div>
+<div class="contact-list"><div><b>Telefone</b><span>(XX) XXXXX-XXXX</span></div><div><b>WhatsApp</b><span>(XX) XXXXX-XXXX</span></div><div><b>Endereço</b><span>Vila Bom Viver — Raposa/MA</span></div></div>
+</div></section></main>
+<footer><div class="container footer-inner"><span>© 2026 Escola Renascer</span><span>Educação Infantil ao 9º ano</span></div></footer>
 
-    <section class="about-card section-small">
-      <div class="container about-grid">
-        <div class="about-photo"></div>
-        <div class="about-content">
-          <span class="section-label">NOSSA PROPOSTA</span>
-          <h2>Um ambiente para aprender, descobrir e crescer.</h2>
-          <p>Do maternal ao 9º ano, acompanhamos nossos alunos com uma proposta pedagógica que valoriza o desenvolvimento acadêmico e humano.</p>
-          <div class="stats">
-            <div><strong>Maternal</strong><span>à infância</span></div>
-            <div><strong>1º–9º</strong><span>ano fundamental</span></div>
-            <div><strong>100%</strong><span>acolhimento</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="modal" id="loginModal"><div class="modal-card"><button class="close" data-close>×</button><div class="login-logo">R</div>
+<span class="section-label" id="loginLabel">PORTAL DO ALUNO</span><h2>Acesse sua área</h2><p>Entre com seu nome completo e senha.</p>
+<form id="loginForm"><label>Nome completo<input id="loginName" required placeholder="Ex.: Gabryel Santos"></label><label>Senha<input id="loginPassword" required type="password" placeholder="Digite sua senha"></label><button class="btn primary full">Entrar no portal</button></form>
+<small>Esta é uma versão demonstrativa. Os dados exibidos são exemplos.</small></div></div>
 
-    <section class="education section" id="ensino">
-      <div class="container">
-        <div class="section-heading centered">
-          <span class="section-label">ETAPAS DE ENSINO</span>
-          <h2>Uma jornada completa de aprendizagem</h2>
-          <p>Estrutura pensada para acompanhar cada fase com desafios adequados e experiências significativas.</p>
-        </div>
-        <div class="cards">
-          <article class="edu-card">
-            <div class="card-number">01</div><div class="card-icon">✦</div>
-            <span>Educação Infantil</span>
-            <h3>Maternal</h3>
-            <p>Primeiras descobertas em um ambiente acolhedor, seguro e cheio de possibilidades.</p>
-            <a href="#matriculas">Saiba mais →</a>
-          </article>
-          <article class="edu-card featured">
-            <div class="card-number">02</div><div class="card-icon">◆</div>
-            <span>Ensino Fundamental</span>
-            <h3>1º ao 5º ano</h3>
-            <p>Construção de conhecimentos, autonomia, criatividade e hábitos que fortalecem a aprendizagem.</p>
-            <a href="#matriculas">Saiba mais →</a>
-          </article>
-          <article class="edu-card">
-            <div class="card-number">03</div><div class="card-icon">↗</div>
-            <span>Ensino Fundamental</span>
-            <h3>6º ao 9º ano</h3>
-            <p>Mais protagonismo, pensamento crítico e preparação para os próximos desafios acadêmicos.</p>
-            <a href="#matriculas">Saiba mais →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="differentials section" id="diferenciais">
-      <div class="container diff-grid">
-        <div class="diff-copy">
-          <span class="section-label light-label">POR QUE A RENASCER?</span>
-          <h2>Conhecimento que deixa marcas para a vida.</h2>
-          <p>Nosso trabalho é criar experiências que façam sentido hoje e preparem nossos alunos para amanhã.</p>
-          <a class="btn btn-light" href="#matriculas">Quero conhecer a escola <span>→</span></a>
-        </div>
-        <div class="features">
-          <div class="feature"><b>01</b><div><h3>Excelência pedagógica</h3><p>Aprendizagem estruturada, acompanhamento e desenvolvimento contínuo.</p></div></div>
-          <div class="feature"><b>02</b><div><h3>Ambiente acolhedor</h3><p>Uma comunidade escolar que valoriza respeito, escuta e parceria.</p></div></div>
-          <div class="feature"><b>03</b><div><h3>Família e escola</h3><p>Comunicação próxima para acompanhar cada etapa da jornada.</p></div></div>
-          <div class="feature"><b>04</b><div><h3>Formação integral</h3><p>Conhecimento, responsabilidade, autonomia e valores no cotidiano.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="enrollment section" id="matriculas">
-      <div class="container enrollment-grid">
-        <div>
-          <span class="section-label">MATRÍCULAS</span>
-          <h2>Pronto para fazer parte da <span>Renascer?</span></h2>
-          <p>Preencha o formulário e nossa equipe poderá orientar você sobre vagas, documentação e próximos passos.</p>
-          <div class="contact-mini">
-            <div>✓ Atendimento personalizado</div>
-            <div>✓ Orientação sobre documentação</div>
-            <div>✓ Informações sobre disponibilidade de vagas</div>
-          </div>
-        </div>
-        <form class="form-card" id="enrollmentForm">
-          <div class="form-head"><strong>Solicite informações</strong><span>Resposta da equipe</span></div>
-          <label>Nome do responsável<input name="responsavel" type="text" placeholder="Seu nome completo" required></label>
-          <label>Nome do aluno<input name="aluno" type="text" placeholder="Nome do aluno" required></label>
-          <div class="two-cols">
-            <label>Ano/Série<input name="serie" type="text" placeholder="Ex.: 7º ano" required></label>
-            <label>WhatsApp<input name="telefone" type="tel" placeholder="(00) 00000-0000" required></label>
-          </div>
-          <label>Mensagem<textarea name="mensagem" rows="3" placeholder="Como podemos ajudar?"></textarea></label>
-          <button class="btn btn-primary btn-submit" type="submit">Enviar solicitação <span>→</span></button>
-          <small>Seus dados serão usados apenas para atendimento da solicitação.</small>
-        </form>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container cta-inner">
-        <div><span class="section-label light-label">ESCOLA RENASCER</span><h2>O próximo capítulo começa aqui.</h2></div>
-        <a class="btn btn-light btn-large" href="#matriculas">Começar matrícula <span>→</span></a>
-      </div>
-    </section>
-
-    <section class="contact section" id="contato">
-      <div class="container contact-grid">
-        <div>
-          <span class="section-label">FALE CONOSCO</span>
-          <h2>Estamos prontos para<br><span>receber sua família.</span></h2>
-        </div>
-        <div class="contact-items">
-          <a href="https://wa.me/" target="_blank"><small>WHATSAPP</small><strong>Fale com a escola →</strong></a>
-          <a href="mailto:contato@escolarenascer.com"><small>E-MAIL</small><strong>contato@escolarenascer.com →</strong></a>
-          <div><small>ATENDIMENTO</small><strong>Segunda a sexta · horário escolar</strong></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-top">
-      <a class="brand footer-brand" href="#inicio"><span class="brand-mark">R</span><span><strong>RENASCER</strong><small>Educação, força que transforma</small></span></a>
-      <div class="footer-links"><a href="#sobre">Sobre</a><a href="#ensino">Ensino</a><a href="#matriculas">Matrículas</a><a href="#contato">Contato</a></div>
-    </div>
-    <div class="container footer-bottom"><span>© 2026 Escola Renascer. Todos os direitos reservados.</span><span>Formando o futuro, cuidando do presente.</span></div>
-  </footer>
-
-  <div class="modal" id="loginModal" aria-hidden="true">
-    <div class="modal-box">
-      <button class="modal-close" data-close>×</button>
-      <span class="section-label">ÁREA DO ALUNO</span>
-      <h2>Acesse seu portal</h2>
-      <p>Área preparada para futura integração com o sistema escolar.</p>
-      <label>Usuário<input type="text" placeholder="Digite seu usuário"></label>
-      <label>Senha<input type="password" placeholder="Digite sua senha"></label>
-      <button class="btn btn-primary btn-submit" id="loginButton">Entrar</button>
-      <small id="loginMessage"></small>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="portal" id="portal"><header class="portal-header"><div class="portal-brand"><span class="brand-mark">R</span><b>Escola Renascer</b></div><div><span id="portalRole">Portal</span><button class="logout" id="logout">Sair</button></div></header>
+<div class="portal-layout"><aside class="portal-sidebar">
+<button class="side active" data-page="home">⌂ Início</button><button class="side student-only" data-page="notas">▣ Notas</button><button class="side student-only" data-page="frequencia">◷ Frequência</button><button class="side student-only" data-page="atividades">✓ Atividades</button><button class="side student-only" data-page="calendario">□ Calendário</button>
+<button class="side teacher-only" data-page="turmas">▤ Minhas turmas</button><button class="side teacher-only" data-page="lancamentos">✎ Lançar notas</button><button class="side teacher-only" data-page="atividades-prof">＋ Atividades</button><button class="side teacher-only" data-page="avisos-prof">! Avisos</button>
+</aside><section class="portal-content" id="portalContent"></section></div></div>
+<script src="script.js"></script>
+</body></html>
