@@ -1,36 +1,24 @@
-const menuToggle=document.getElementById("menuToggle");
-const navLinks=document.getElementById("navLinks");
-menuToggle?.addEventListener("click",()=>{navLinks.classList.toggle("open");document.body.classList.toggle("menu-open")});
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");document.body.classList.remove("menu-open")}));
-
-const modal=document.getElementById("loginModal");
-document.querySelectorAll("[data-modal]").forEach(btn=>btn.addEventListener("click",()=>{modal.classList.add("open");modal.setAttribute("aria-hidden","false")}));
-document.querySelectorAll("[data-close]").forEach(btn=>btn.addEventListener("click",()=>{modal.classList.remove("open");modal.setAttribute("aria-hidden","true")}));
-modal?.addEventListener("click",e=>{if(e.target===modal){modal.classList.remove("open");modal.setAttribute("aria-hidden","true")}});
-
-document.getElementById("loginButton")?.addEventListener("click",()=>{
-  document.getElementById("loginMessage").textContent="O portal será conectado ao sistema escolar nesta próxima etapa.";
-});
-
-document.getElementById("enrollmentForm")?.addEventListener("submit",e=>{
-  e.preventDefault();
-  const form=e.currentTarget;
-  const data=new FormData(form);
-  const nome=data.get("responsavel");
-  alert(`Obrigado, ${nome}! Sua solicitação foi preenchida. Para receber a mensagem da escola, conecte este formulário ao WhatsApp ou a um serviço de formulários.`);
-  form.reset();
-});
-
-const header=document.getElementById("header");
-window.addEventListener("scroll",()=>{header.style.boxShadow=window.scrollY>20?"0 5px 25px rgba(0,0,0,.06)":"none"});
-
-const sections=[...document.querySelectorAll("main section[id]")];
-const links=[...document.querySelectorAll(".nav-links a")];
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+entry.target.id));
-    }
-  });
-},{rootMargin:"-30% 0px -60% 0px"});
-sections.forEach(s=>observer.observe(s));
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const modal=$("#loginModal"),portal=$("#portal"),nav=$("#mainNav");let role="student",currentName="";
+$("#menuToggle").onclick=()=>nav.classList.toggle("open");
+window.addEventListener("scroll",()=>document.querySelector(".site-header").classList.toggle("scrolled",scrollY>10));
+function openLogin(r){role=r;$("#loginLabel").textContent=r==="student"?"PORTAL DO ALUNO":"PORTAL DO PROFESSOR";$("#loginName").value="";$("#loginPassword").value="";modal.classList.add("show")}
+$("#openStudent").onclick=()=>openLogin("student");$("#openTeacher").onclick=()=>openLogin("teacher");
+$$("[data-close]").forEach(b=>b.onclick=()=>modal.classList.remove("show"));
+$("#loginForm").onsubmit=e=>{e.preventDefault();currentName=$("#loginName").value.trim();if(!currentName)return;modal.classList.remove("show");portal.classList.add("show");$("#portalRole").textContent=role==="student"?"Portal do Aluno":"Portal do Professor";$$(".student-only").forEach(x=>x.style.display=role==="student"?"block":"none");$$(".teacher-only").forEach(x=>x.style.display=role==="teacher"?"block":"none");$$(".side").forEach(x=>x.classList.remove("active"));$(".side[data-page=home]").classList.add("active");renderPage("home")};
+$("#logout").onclick=()=>portal.classList.remove("show");
+$$(".side").forEach(b=>b.onclick=()=>{$$(".side").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderPage(b.dataset.page)});
+function renderPage(p){role==="student"?studentPage(p):teacherPage(p)}
+function studentPage(p){const c=$("#portalContent"),n=currentName.split(" ")[0]||currentName;
+const x={home:`<div class="dash-head"><span class="section-label">Portal do aluno</span><h1>Olá, ${n}! 👋</h1><p>Bem-vindo(a) ao seu espaço escolar.</p></div><div class="stat-grid"><div class="stat">Média geral<strong>8,7</strong></div><div class="stat">Frequência<strong>96%</strong></div><div class="stat">Atividades pendentes<strong>3</strong></div></div><div class="panel"><h3>📢 Avisos recentes</h3><div class="notice"><b>Reunião de responsáveis</b><br>Confira o calendário para saber a próxima data.</div><div class="notice"><b>Atividades</b><br>Existem novas atividades disponíveis.</div></div>`,
+notas:`<div class="dash-head"><span class="section-label">Desempenho</span><h1>Minhas notas</h1></div><div class="panel"><table class="data-table"><tr><th>Disciplina</th><th>1º bimestre</th><th>2º bimestre</th><th>Média</th></tr><tr><td>Português</td><td>9,0</td><td>8,5</td><td><b>8,8</b></td></tr><tr><td>Matemática</td><td>8,5</td><td>9,0</td><td><b>8,8</b></td></tr><tr><td>Ciências</td><td>9,0</td><td>9,5</td><td><b>9,3</b></td></tr></table></div>`,
+frequencia:`<div class="dash-head"><span class="section-label">Acompanhamento</span><h1>Minha frequência</h1></div><div class="stat-grid"><div class="stat">Presença<strong>96%</strong></div><div class="stat">Faltas<strong>4%</strong></div><div class="stat">Situação<strong>Regular</strong></div></div>`,
+atividades:`<div class="dash-head"><span class="section-label">Estudos</span><h1>Atividades</h1></div><div class="panel"><table class="data-table"><tr><th>Atividade</th><th>Disciplina</th><th>Prazo</th><th>Status</th></tr><tr><td>Trabalho de Ciências</td><td>Ciências</td><td>20/09</td><td><span class="badge">Disponível</span></td></tr><tr><td>Lista de exercícios</td><td>Matemática</td><td>22/09</td><td><span class="badge">Disponível</span></td></tr></table></div>`,
+calendario:`<div class="dash-head"><span class="section-label">Agenda</span><h1>Calendário</h1></div><div class="panel"><div class="notice"><b>18/09</b> — Avaliação de Matemática</div><div class="notice"><b>25/09</b> — Entrega de trabalho</div><div class="notice"><b>30/09</b> — Evento escolar</div></div>`};c.innerHTML=x[p]||x.home}
+function teacherPage(p){const c=$("#portalContent"),n=currentName.split(" ")[0]||currentName;
+const x={home:`<div class="dash-head"><span class="section-label">Portal do professor</span><h1>Olá, ${n}! 👋</h1><p>Gerencie suas turmas e acompanhe atividades.</p></div><div class="stat-grid"><div class="stat">Turmas<strong>4</strong></div><div class="stat">Alunos<strong>96</strong></div><div class="stat">Atividades<strong>12</strong></div></div><div class="panel"><h3>📢 Central docente</h3><div class="notice">Você possui lançamentos e atividades para revisar.</div></div>`,
+turmas:`<div class="dash-head"><span class="section-label">Ensino</span><h1>Minhas turmas</h1></div><div class="panel"><table class="data-table"><tr><th>Turma</th><th>Alunos</th><th>Disciplina</th></tr><tr><td>9º ano</td><td>24</td><td>Ciências</td></tr><tr><td>8º ano</td><td>22</td><td>Ciências</td></tr><tr><td>7º ano</td><td>25</td><td>Ciências</td></tr></table></div>`,
+lancamentos:`<div class="dash-head"><span class="section-label">Avaliações</span><h1>Lançar notas</h1></div><div class="panel"><p>Selecione uma turma para iniciar.</p><div class="portal-actions"><button class="mini-btn">9º ano</button><button class="mini-btn">8º ano</button><button class="mini-btn">7º ano</button></div></div>`,
+"atividades-prof":`<div class="dash-head"><span class="section-label">Materiais</span><h1>Atividades</h1></div><div class="panel"><p>Crie e organize atividades para suas turmas.</p><button class="btn primary">+ Nova atividade</button></div>`,
+"avisos-prof":`<div class="dash-head"><span class="section-label">Comunicação</span><h1>Avisos</h1></div><div class="panel"><p>Publique avisos para suas turmas.</p><button class="btn primary">+ Novo aviso</button></div>`};c.innerHTML=x[p]||x.home}
+$("#enrollmentForm").onsubmit=e=>{e.preventDefault();alert("Solicitação enviada! Em uma versão real, os dados serão encaminhados para a escola.");e.target.reset()};
